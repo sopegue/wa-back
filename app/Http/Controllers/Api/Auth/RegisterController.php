@@ -49,13 +49,15 @@ class RegisterController extends Controller
 
             $user->password = Hash::make($request->password);
 
-            if($request->has('surname')){
+            if($request->input('surname') != "" ){
+
                 $user->surname = $request->surname;
+
             }
 
             $user->save();
 
-            if($request->has('phone')){
+            if($request->input('phone') != "" ){
                 
                 $phone = new Phone(['phone' => $request->phone]);
 
@@ -64,7 +66,7 @@ class RegisterController extends Controller
                 $phone->save();
             }
 
-            if($request->has('adress')){
+            if($request->input('adress') != "" ){
 
                 $adress = new Adresse(['adress' => $request->adress]);
 
