@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000','https://infallible-hoover-5b8ad1.netlify.app'],
+    'allowed_origins' => ['http://localhost:3000','https://5f81af951433d5971cf7fc17--vigorous-neumann-26ed19.netlify.app'],
 
     'allowed_origins_patterns' => [],
 
