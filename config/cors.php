@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000','https://relaxed-ride-bdf77f.netlify.app'],
+    'allowed_origins' => ['http://localhost:3000','https://waloo-site.netlify.app'],
 
     'allowed_origins_patterns' => [],
 
