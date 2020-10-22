@@ -23,7 +23,7 @@ class DelMePicController extends Controller
     {
         $user=User::find($request->id);
         $oldpic=$user->profile;
-        Storage::disk('public')->delete('users/'.$request->id.'//profile/'.$oldpic);
+        Storage::delete('public/users/'.$request->id.'//profile/'.$oldpic);
         $user->profile = null;
         $user->save();
         return  response()->json(['done' => 'yes'], Response::HTTP_OK);

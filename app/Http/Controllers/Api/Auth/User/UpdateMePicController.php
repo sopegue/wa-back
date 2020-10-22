@@ -26,7 +26,7 @@ class UpdateMePicController extends Controller
         $mypic=$request->file('file');
         $extension=$mypic->getClientOriginalExtension();
         $pp="user.{$extension}";
-        Storage::disk('public')->delete('users/'.$request->id.'//profile/'.$oldpic);
+        Storage::delete('public/users/'.$request->id.'//profile/'.$oldpic);
         $mypic->storeAs('public/users/'.$request->id.'//profile/',$pp);
         $user->profile=$pp;
         $user->save();
