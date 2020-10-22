@@ -8,7 +8,7 @@ use App\Product;
 use App\Favrite;
 use App\User;
 use Illuminate\Http\Response;
-use \Illuminate\Http\UploadedFile;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 class UpdateMePicController extends Controller
