@@ -22,20 +22,17 @@ class UpdateMePicController extends Controller
     public function __invoke(Request $request)
     {
         $user=User::find($request->id);
+        $mypic=$request->file('file');
+        $extension=$mypic->getClientOriginalExtension();
+        $pp="user.{$extension}";
         if($user->profile != null) {
             $oldpic=$user->profile;
-            $mypic=$request->file('file');
-            $extension=$mypic->getClientOriginalExtension();
-            $pp="user.{$extension}";
             Storage::delete('public/users/'.$request->id.'//profile/'.$oldpic);
-            $mypic->storeAs('public/users/'.$request->id.'//profile/',$pp);
+            Storage::putFileAs('public/users/'.$request->id.'//profile/'.$pp, $mypic);
             $user->profile=$pp;
         }
         else {
-            $mypic=$request->file('file');
-            $extension=$mypic->getClientOriginalExtension();
-            $pp="user.{$extension}";
-            $mypic->storeAs('public/users/'.$request->id.'//profile/',$pp);
+            Storage::putFileAs('public/users/'.$request->id.'//profile/'.$pp, $mypic);
             $user->profile=$pp;
         }
         $user->save();
