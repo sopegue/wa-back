@@ -47,8 +47,6 @@ class RegisterController extends Controller
 
             $user->name = $request->name;
 
-            $user->role = "Client";
-
             $user->password = Hash::make($request->password);
 
             if($request->input('surname') != "" ){
